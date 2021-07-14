@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cal{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cal">
+    <h1 style=" padding: 15px ;font-size: 50px; border-color:black;">TIP Calculator</h1>
+    <br>
+    <br>
+    <h2 style=" padding: 15px ;font-size: 24px; border-color:black;">How much was your Bill?</h2>
+    <br>
+    <input type="number" placeholder="Enter the Amount" id="i1" style=" padding: 15px ;font-size: 24px; border-color:black;"/>
+    <br>
+    <h2 style=" padding: 15px ;font-size: 24px; border-color:black;">How was your Service?</h2>
+    <br>
+    <select id="service" style=" padding: 15px ;font-size: 24px; border-color:black;" >
+        <option value="" disabled selected hidden >Choose Feedback...</option>
+        <option value="Excellent" style=" padding: 15px ;font-size: 20px; border-color:black;">Excellent</option>
+        <option value="Good" style=" padding: 15px ;font-size: 20px; border-color:black;">Good</option>
+        <option value="Average" style=" padding: 15px ;font-size: 20px; border-color:black;">Average</option>
+        <option value="Poor" style=" padding: 15px ;font-size: 20px; border-color:black;">Poor</option>
+    </select>
+    <br>
+    <h2 style=" padding: 15px ;font-size: 24px; border-color:black;">How many people are sharing the Bill?</h2>
+    <br>
+    <input type="number" id="i2" placeholder="Enter no of Persons" style=" padding: 15px ;font-size: 24px; border-color:black;">
+    <br>
+    <br>
+    <button onclick="calculate()" style=" padding: 15px ;font-size: 24px; border-color:black;">Calculate</button>
+    <br>
+
+    </div>
+
+
+    <script>
+
+    function calculate(){
+
+    var op1,op2,op3;
+    
+    op1 = document.getElementById("i1").value;
+    op2 = document.getElementById("service").value;
+    op3 = document.getElementById("i2").value;
+
+    console.log(op1);
+    if(!op1)
+    {
+        alert("Can't leave fields empty,Enter the values first");
+    }
+    if(!op3)
+    {
+        alert("Can't leave fields empty,Enter the values first");
+    }
+    if(!op2){
+        alert("Can't leave fields empty,Enter the values first");
+    }
+
+    else{
+    var result = op1/op3;
+
+    alert(`Each Individual has to pay Rs= ${result.toFixed(2)} & Feedback received from Customer is : ${op2}`);
+    document.getElementById("i1").value="";
+    document.getElementById("i2").value="";
+    document.getElementById("service").value="";
+
+
+    }
+    }
+
+    </script>
+    
+</body>
+</html>
